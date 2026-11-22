@@ -41,3 +41,8 @@ def update_preferences(pref: UserPreference):
 def get_recommendations(user_id: int, limit: int = 3):
     recs = recommender.recommend(user_id=user_id, top_n=limit)
     return {"user_id": user_id, "recommendations": recs}
+
+
+@app.get("/health", tags=["Health"])
+def health():
+    return {"status": "healthy"}
